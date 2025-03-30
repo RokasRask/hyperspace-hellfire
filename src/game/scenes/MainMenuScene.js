@@ -32,11 +32,8 @@ class MainMenuScene extends Phaser.Scene {
     // Add scrolling background effect
     this.backgroundScroll = { y: 0 };
     
-    // Add audio
-    if (!this.menuMusic) {
-      this.menuMusic = this.sound.add('shoot', { loop: true, volume: 0.5 });
-      this.menuMusic.play();
-    }
+    // Audio will be added later
+    this.menuMusic = null;
   }
 
   update() {
@@ -50,11 +47,6 @@ class MainMenuScene extends Phaser.Scene {
   }
 
   startGame() {
-    // Stop menu music
-    if (this.menuMusic) {
-      this.menuMusic.stop();
-    }
-    
     // Start the game
     this.scene.start('Level1');
   }

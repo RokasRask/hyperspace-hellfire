@@ -55,8 +55,7 @@ class Level1 extends Phaser.Scene {
     // Set up keyboard controls
     this.escKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ESC);
     
-    // Start the level music
-    this.sound.play('shoot', { loop: true, volume: 0.3 });
+    // Level music will be added later
   }
 
   update(time, delta) {

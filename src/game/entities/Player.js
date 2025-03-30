@@ -113,8 +113,7 @@ class Player extends Phaser.Physics.Arcade.Sprite {
         this.createBullet(this.x, this.y - 20);
     }
     
-    // Play sound effect
-    this.scene.sound.play('shoot', { volume: 0.5 });
+    // Sound effect will be added later
   }
 
   createBullet(x, y, velocityX = 0) {

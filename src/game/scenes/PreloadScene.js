@@ -21,10 +21,8 @@ class PreloadScene extends Phaser.Scene {
     // Load UI assets
     this.load.image('button', 'https://via.placeholder.com/200x50/444444/FFFFFF');
     
-    // Load audio assets (use silent placeholder for now)
-    this.load.audio('shoot', [
-      'data:audio/wav;base64,UklGRigAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQQAAAAAAA=='
-    ]);
+    // We'll skip audio loading for now
+    // Will add proper audio files later
     
     // Display the logo during loading
     const { width, height } = this.cameras.main;

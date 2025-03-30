@@ -21,8 +21,17 @@ class PreloadScene extends Phaser.Scene {
     // Load UI assets
     this.load.image('button', 'https://via.placeholder.com/200x50/444444/FFFFFF');
     
-    // We'll skip audio loading for now
-    // Will add proper audio files later
+    // Load audio assets
+    // Sound effects
+    this.load.audio('shoot', ['assets/audio/sfx/weapons/player_shoot.mp3']);
+    this.load.audio('enemy-shoot', ['assets/audio/sfx/weapons/enemy_shoot.mp3']);
+    this.load.audio('explosion', ['assets/audio/sfx/explosions/explosion.mp3']);
+    this.load.audio('powerup', ['assets/audio/sfx/powerups/powerup.mp3']);
+    this.load.audio('special-attack', ['assets/audio/sfx/weapons/special_attack.mp3']);
+    
+    // Music
+    this.load.audio('title-music', ['assets/audio/music/title.mp3']);
+    this.load.audio('level1-music', ['assets/audio/music/level1-3.mp3']);
     
     // Display the logo during loading
     const { width, height } = this.cameras.main;

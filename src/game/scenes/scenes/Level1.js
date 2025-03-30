@@ -55,7 +55,9 @@ class Level1 extends Phaser.Scene {
     // Set up keyboard controls
     this.escKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ESC);
     
-    // Level music will be added later
+    // Start the level music
+    this.levelMusic = this.sound.add('level1-music', { loop: true, volume: 0.4 });
+    this.levelMusic.play();
   }
 
   update(time, delta) {
@@ -209,10 +211,21 @@ class Level1 extends Phaser.Scene {
       duration: 500,
       onComplete: () => powerupEffect.destroy()
     });
+    
+    // Play power-up sound
+    this.sound.play('powerup', { volume: 0.6 });
   }
 
   onPlayerDeath() {
     this.isGameOver = true;
+    
+    // Stop level music
+    if (this.levelMusic) {
+      this.levelMusic.stop();
+    }
+    
+    // Play a big explosion sound
+    this.sound.play('explosion', { volume: 0.8 });
     
     // Show game over text
     const { width, height } = this.cameras.main;

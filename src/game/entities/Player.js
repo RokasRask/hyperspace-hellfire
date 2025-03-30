@@ -113,7 +113,8 @@ class Player extends Phaser.Physics.Arcade.Sprite {
         this.createBullet(this.x, this.y - 20);
     }
     
-    // Sound effect will be added later
+    // Play shooting sound effect
+    this.scene.sound.play('shoot', { volume: 0.5 });
   }
 
   createBullet(x, y, velocityX = 0) {
@@ -157,6 +158,9 @@ class Player extends Phaser.Physics.Arcade.Sprite {
       duration: 100,
       repeat: 14
     });
+    
+    // Play special attack sound
+    this.scene.sound.play('special-attack', { volume: 0.7 });
     
     // Remove beam after 3 seconds
     this.scene.time.delayedCall(3000, () => {

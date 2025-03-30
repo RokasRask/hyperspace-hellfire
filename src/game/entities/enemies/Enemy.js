@@ -109,6 +109,9 @@ class Enemy extends Phaser.Physics.Arcade.Sprite {
     const bullet = this.bullets.create(this.x, this.y + 20, 'enemy-bullet');
     bullet.setVelocity(0, this.bulletSpeed);
     bullet.setOrigin(0.5);
+    
+    // Play enemy shoot sound at lower volume
+    this.scene.sound.play('enemy-shoot', { volume: 0.2 });
   }
 
   checkBounds() {
@@ -159,6 +162,9 @@ class Enemy extends Phaser.Physics.Arcade.Sprite {
       duration: 400,
       onComplete: () => explosion.destroy()
     });
+    
+    // Play explosion sound
+    this.scene.sound.play('explosion', { volume: 0.3 });
     
     // Emit an event that the enemy was destroyed
     this.scene.events.emit('enemyDestroyed', {

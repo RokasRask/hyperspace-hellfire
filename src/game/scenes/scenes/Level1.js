@@ -56,8 +56,32 @@ class Level1 extends Phaser.Scene {
     this.escKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ESC);
     
     // Start the level music
-    this.levelMusic = this.sound.add('level1-music', { loop: true, volume: 0.4 });
+    // Level 1 uses unique music that loops from 20 seconds
+    this.levelMusic = this.sound.add('level1-music', { 
+      loop: true, 
+      volume: 0.4
+    });
+    
+    // Play the music from the beginning, but set up a marker to loop from 20s
     this.levelMusic.play();
+    
+    // Once the music reaches 20 seconds, set it to loop from there
+    this.time.delayedCall(20000, () => {
+      // Stop the current playback
+      this.levelMusic.stop();
+      
+      // Create a new marker that starts at 20 seconds
+      this.levelMusic.addMarker({
+        name: 'loop-point',
+        start: 20,
+        duration: this.levelMusic.duration - 20
+      });
+      
+      // Play from the marker with looping
+      this.levelMusic.play('loop-point', {
+        loop: true
+      });
+    });
   }
 
   update(time, delta) {

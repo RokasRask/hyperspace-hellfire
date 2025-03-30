@@ -31,7 +31,7 @@ class PreloadScene extends Phaser.Scene {
     
     // Music
     this.load.audio('title-music', ['assets/audio/music/title.mp3']);
-    this.load.audio('level1-music', ['assets/audio/music/level1-3.mp3']);
+    this.load.audio('level1-music', ['assets/audio/music/level1.mp3']);
     
     // Display the logo during loading
     const { width, height } = this.cameras.main;

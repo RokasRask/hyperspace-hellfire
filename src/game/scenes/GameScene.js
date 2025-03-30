@@ -22,6 +22,18 @@ class GameScene extends Phaser.Scene {
     this.events.once('shutdown', this.shutdown, this);
   }
 
+  // Play the appropriate music for this level
+  playLevelMusic(musicKey) {
+    // Stop any currently playing music
+    if (this.levelMusic) {
+      this.levelMusic.stop();
+    }
+    
+    // Start the new music
+    this.levelMusic = this.sound.add(musicKey, { loop: true, volume: 0.4 });
+    this.levelMusic.play();
+  }
+
   update(time, delta) {
     // Scroll background (if exists)
     if (this.background) {
@@ -88,6 +100,11 @@ class GameScene extends Phaser.Scene {
   }
 
   shutdown() {
+    // Stop any playing music
+    if (this.levelMusic) {
+      this.levelMusic.stop();
+    }
+    
     // Clean up any resources when scene shuts down
     this.input.keyboard.shutdown();
   }

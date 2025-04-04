@@ -1,37 +1,33 @@
-// src/game/index.js
 import Phaser from 'phaser';
-import BootScene from './scenes/BootScene';
-import PreloadScene from './scenes/PreloadScene';
-import MainMenuScene from './scenes/MainMenuScene';
 import GameScene from './scenes/GameScene';
-import Level1 from './scenes/scenes/Level1';
+// Potentially import BootScene and PreloadScene later [cite: 8]
 
-// Game configuration
+// Basic Phaser Game Configuration
 const config = {
-  type: Phaser.AUTO,
-  width: 800,
-  height: 600,
-  backgroundColor: '#000000',
-  parent: 'game-container',
+  type: Phaser.AUTO, // Automatically choose WebGL or Canvas
+  width: 800,        // Set your desired game width
+  height: 600,       // Set your desired game height
+  parent: 'game-container', // ID of the div where the canvas will be injected
   physics: {
-    default: 'arcade',
+    default: 'arcade', // Using Arcade Physics engine
     arcade: {
-      gravity: { y: 0 },
-      debug: false
+      // gravity: { y: 0 }, // Top-down shooter typically doesn't need gravity
+      debug: false // Set to true for debugging physics bodies
     }
   },
   scene: [
-    BootScene,
-    PreloadScene,
-    MainMenuScene,
-    GameScene,
-    Level1
+    // Add BootScene, PreloadScene here first when you create them
+    GameScene // Start with the main game scene for now [cite: 8]
   ]
 };
 
-// Initialize the game when the DOM is ready
-const initGame = () => {
-  return new Phaser.Game(config);
+// Function to launch the game
+const launch = (containerId) => {
+  // Ensure the containerId matches the 'parent' in the config
+  config.parent = containerId;
+  const game = new Phaser.Game(config);
+  return game;
 };
 
-export default initGame;
+export default launch;
+export { launch }; // Export the launch function

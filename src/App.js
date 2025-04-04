@@ -1,7 +1,6 @@
-// src/App.js
 import React from 'react';
-import GameCanvas from './components/GameCanvas';
-import './styles/App.css';
+import './styles/App.css'; // Main app styles [cite: 17]
+import GameCanvas from './components/GameCanvas'; // The component that will hold the Phaser game [cite: 7]
 
 function App() {
   return (
@@ -12,9 +11,6 @@ function App() {
       <main>
         <GameCanvas />
       </main>
-      <footer>
-        <p>Controls: Arrow Keys to move, Space to shoot, Z for special attack</p>
-      </footer>
     </div>
   );
 }

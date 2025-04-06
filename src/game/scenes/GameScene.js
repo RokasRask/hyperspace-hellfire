@@ -19,6 +19,8 @@ class GameScene extends Phaser.Scene {
   create() {
     console.log('GameScene: create');
 
+    
+
     // Get game dimensions
     const { width, height } = this.sys.game.config;
 

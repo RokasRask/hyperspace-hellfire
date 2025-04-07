@@ -52,4 +52,5 @@ class Bullet extends Phaser.Physics.Arcade.Sprite {
     }
 }
 
+
 export default Bullet;

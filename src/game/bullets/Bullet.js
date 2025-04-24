@@ -11,7 +11,6 @@ class Bullet extends Phaser.Physics.Arcade.Sprite {
     this.lifespan = 1000; // Milliseconds before self-destructing
     this._timer = null;
   }
-  
 
   // Called by the Player class when firing
   fire(x, y, rotation) {
